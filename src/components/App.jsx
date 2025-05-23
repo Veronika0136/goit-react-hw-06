@@ -5,6 +5,7 @@ import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
 import ContactList from '../components/ContactList/ContactList';
 import s from '../components/App.module.css';
+// import { useSelector } from 'react-redux';
 
 const App = () => {
   const [contacts, setContacts] = useState(
@@ -20,11 +21,11 @@ const App = () => {
     setValues(e.target.value);
   };
 
-  const handeleFilterContacts = (contacts, values) => {
-    return contacts.filter(contact => contact.name.toLowerCase().includes(values.toLowerCase()));
-  };
+  // const handeleFilterContacts = (contacts, values) => {
+  //   return contacts.filter(contact => contact.name.toLowerCase().includes(values.toLowerCase()));
+  // };
 
-  const filterContacts = handeleFilterContacts(contacts, values);
+  // const filterContacts = handeleFilterContacts(contacts, values);
 
   const handleSubmit = (values, options) => {
     const newValues = { ...values, id: nanoid() };
@@ -44,7 +45,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm handleSubmit={handleSubmit} />
       <SearchBox values={values} handleChangeInput={handleChangeInput} />
-      <ContactList contacts={filterContacts} handleDeleteContact={handleDeleteContact} />
+      <ContactList handleDeleteContact={handleDeleteContact} />
     </div>
   );
 };
