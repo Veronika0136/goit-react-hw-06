@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, createAction } from '@reduxjs/toolkit';
 
 const initialState = {
   contacts: {
@@ -14,8 +14,16 @@ const initialState = {
   },
 };
 
+export const addContact = createAction('contacts/addContact');
+export const deleteContact = createAction('contacts/deleteContact');
+export const setNameFilter = createAction('filters/setNameFilter');
+export const setContacts = createAction('contacts/setContacts');
+
 const rootReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 export const store = configureStore({

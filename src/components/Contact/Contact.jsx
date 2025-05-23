@@ -1,7 +1,21 @@
 import React from 'react';
 import s from './Contact.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/store';
 
-const Contact = ({ name, number, id, handleDeleteContact }) => {
+const Contact = ({ name, number, id }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteContact(id));
+  };
+
+  // const handleDeleteContact = id => {
+  //   setContacts(contacts => {
+  //     return contacts.filter(contact => contact.id !== id);
+  //   });
+  // };
+
   return (
     <div className={s.card}>
       <div className={s.info}>
@@ -18,7 +32,7 @@ const Contact = ({ name, number, id, handleDeleteContact }) => {
           <p>{number}</p>
         </div>
       </div>
-      <button className={s.btn} onClick={() => handleDeleteContact(id)}>
+      <button className={s.btn} onClick={handleDelete}>
         Delete
       </button>
     </div>

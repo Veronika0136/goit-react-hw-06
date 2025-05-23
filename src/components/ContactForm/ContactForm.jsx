@@ -3,13 +3,31 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './ContactForm.module.css';
 
-const ContactForm = ({ handleSubmit }) => {
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/store';
+
+const ContactForm = () => {
   // const handleSubmit = (values, options) => {
   //   console.log(values);
   //   const newValues = { ...values, id: nanoid() };
   //   console.log(newValues);
   //   options.resetForm();
   // };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    dispatch(
+      addContact({
+        id: crypto.randomUUID(),
+        name: form.elements.name.value,
+        number: form.elements.number.value,
+      })
+    );
+    form.reset();
+  };
 
   const initialValues = {
     name: '',
