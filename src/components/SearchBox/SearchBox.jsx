@@ -9,7 +9,6 @@ const SearchBox = () => {
   const searchContacts = useSelector(state => state.filters.name);
 
   const handleChangeInput = e => {
-    console.log(e.target.value);
     dispatch(changeFilter(e.target.value));
   };
 

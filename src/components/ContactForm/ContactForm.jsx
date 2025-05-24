@@ -7,17 +7,9 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 
 const ContactForm = () => {
-  // const handleSubmit = (values, options) => {
-  //   console.log(values);
-  //   const newValues = { ...values, id: nanoid() };
-  //   console.log(newValues);
-  //   options.resetForm();
-  // };
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(
       addContact({
         id: crypto.randomUUID(),

@@ -11,12 +11,6 @@ const Contact = ({ name, number, id }) => {
     s;
   };
 
-  // const handleDeleteContact = id => {
-  //   setContacts(contacts => {
-  //     return contacts.filter(contact => contact.id !== id);
-  //   });
-  // };
-
   return (
     <div className={s.card}>
       <div className={s.info}>
