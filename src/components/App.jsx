@@ -5,7 +5,6 @@ import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
 import ContactList from '../components/ContactList/ContactList';
 import s from '../components/App.module.css';
-// import { useSelector } from 'react-redux';
 
 const App = () => {
   // const [contacts, setContacts] = useState(

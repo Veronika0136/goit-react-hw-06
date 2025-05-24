@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import s from './ContactForm.module.css';
 
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/store';
+import { addContact } from '../../redux/contactsSlice';
 
 const ContactForm = () => {
   // const handleSubmit = (values, options) => {
@@ -16,17 +16,16 @@ const ContactForm = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const form = event.target;
+  const handleSubmit = (values, options) => {
+    console.log(values);
     dispatch(
       addContact({
         id: crypto.randomUUID(),
-        name: form.elements.name.value,
-        number: form.elements.number.value,
+        name: values.name,
+        number: values.number,
       })
     );
-    form.reset();
+    options.resetForm();
   };
 
   const initialValues = {
